@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		var socket = io.connect('http://192.168.0.104:8080');
+	</script>
+	<style>
+		html{
+			padding: 0;
+			width: 100%;
+			height: 100%;
+		}
+		body{
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+			-moz-user-select: -moz-none;
+			-khtml-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			font-family: 'Roboto', sans-serif;
+		}
+		#left{
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			margin: 0;
+			padding: 0;
+			width: 50%;
+			height: 80%;
+			background-color: #d1d4dc;
+		}
+		#left:active{
+			background-color: #cbced7;
+		}
+		#right{
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			margin: 0;
+			padding: 0;
+			width: 50%;
+			height: 80%;
+			background-color: #bec2cd;
+		}
+		#right:active{
+			background-color: #abaeb8;
+		}
+		h1 {
+			position: absolute;
+			top: 10%;
+			width: 100%;
+			margin: -30px 0;
+			text-align: center;
+			font-size: 50px;
+			line-height: 60px;
+		}
+</style>
+</head>
+<body>
+	<div class="block" style="height: 20%;">
+		<h1 class="centered"></h1>
+	</div>
+	<div id="left"></div>
+	<div id="right"></div>
+	<script src="javascripts/control.js"></script>
+</body>
+</html>
