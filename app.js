@@ -10,6 +10,9 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
+var server_url = 'localhost';
+var server_port = '8080';
+
 //counter
 var controldata = {
     team1: {
@@ -33,10 +36,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
-    res.render('index');
+    res.render('index',{
+        server_url: server_url,
+        server_port: server_port
+    });
 });
 app.get('/control', function (req, res) {
-    res.render('control');
+    res.render('control',{
+        server_url: server_url,
+        server_port: server_port
+    });
 });
 
 // catch 404 and forward to error handler
@@ -151,5 +160,5 @@ io.on('connection', function (socket) {
 });
 
 //app.listen(8080);
-server.listen(8080);
+server.listen(server_port);
 module.exports = app;
